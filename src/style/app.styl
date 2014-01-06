@@ -1,0 +1,152 @@
+@import global
+@import fx
+@import topcoat-mobile-light
+@import nib
+
+.main-app-container
+  position absolute
+  width 100%
+  top 0
+  right 0
+  bottom 0
+  left 0
+  box-shadow 0 0 8px rgba(0,0,0,0.5)
+  border-left 1px solid rgba(255,255,255,0.2)
+  overflow hidden
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #dfe2e2;
+
+.scrolling-container
+  position absolute
+  top 4rem
+  bottom 0
+  width 100%
+  overflow scroll
+  -webkit-overflow-scrolling touch
+
+.app-menu
+  position absolute
+  top 0
+  bottom 0
+  width 75%
+  overflow scroll
+  background-color #444849
+  color #c6c8c8
+
+.menu-displayed
+  margin-left 45%
+  transition margin-left 350ms
+
+.menuicon-hidden .menu-icon
+  display none
+
+.menu-hidden
+  margin-left 0%
+  transition margin-left 350ms
+
+.app-menu .topcoat-navigation-bar__title
+  color #fff
+
+.app-menu .topcoat-navigation-bar
+    background-color #595b5b
+    -webkit-box-shadow inset 0 -1px #333434, 0 1px rgba(0,0,0,0.15)
+    box-shadow inset 0 -1px #333434, 0 1px rgba(0,0,0,0.15)
+    border-bottom none
+
+.topcoat-navigation-bar
+    -webkit-box-shadow inset 0 -1px #B3B6B5, 0 1px rgba(0,0,0,0.15)
+    box-shadow inset 0 -1px #B3B6B5, 0 1px rgba(0,0,0,0.15)
+    border-bottom none
+
+/* Side Nav */
+#sideNav .topcoat-list
+  background: #4A4D4E;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+  left: 0;
+
+#sideNav ul 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+#sideNav li a 
+  color: #F0F1F1;
+  display: block;
+  height: 46px;
+  font-size: 16px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 12px 0 0 20px;
+  text-decoration: none;
+
+.person h3, .person h4, .person h5
+  margin: 0;
+
+.person .clear
+  clear both
+
+.person .clear-left
+  clear left  
+
+.person .left 
+  float left
+.person .right 
+  float right
+
+.person .picture 
+  margin-right: 10px
+
+.person .dots
+  text-align center
+
+.person .dots span
+  display inline-block
+  height 5px
+  width 5px
+  margin-right 5px
+  border-radius 5px
+
+.person .dots .male
+  background: blue
+.person .dots .female
+  background: pink  
+
+.media 
+  text-align center
+  padding-top: 10px;
+.media span
+  margin-right 10px
+  white-space nowrap
+
+.media .photos, .media .stories
+  margin-right 0
+  display inline-block
+  background #333
+  border-radius: 25px;
+  width: 25px
+  height: 25px
+  padding: 0;
+  line-height 25px
+  color #fff
+  white-space nowrap
+  text-align center  
+
+.person .actionbar
+  background #fff
+  position: absolute
+  margin-top: 10px;
+  left 0
+  right 0
+  padding 10px 15px
