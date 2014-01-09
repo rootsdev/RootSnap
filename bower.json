@@ -8,7 +8,8 @@
     "angular-resource": "1.2.6",
     "angular-cookies": "1.2.6",
     "angular-sanitize": "1.2.6",
-    "angular-route": "1.2.6"
+    "angular-route": "1.2.6",
+    "familysearch-javascript-sdk": "git://github.com/rootsdev/familysearch-javascript-sdk.git#gh-pages"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",
