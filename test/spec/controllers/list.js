@@ -12,11 +12,13 @@ describe('Controller: ListCtrl', function () {
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     ListCtrl = $controller('ListCtrl', {
-      $scope: scope
+      $scope: scope,
+      ancestry: [{id: '123'}]
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should initialize correctly', function () {
+    expect(scope.ancestry.length).toBe(1);
+    expect(scope.ancestry[0].id).toBe('123');
   });
 });

@@ -2,71 +2,38 @@
   <div class="col-sm-12">
     <table class="searchResultsTable grid table table-striped table-hover tree-family" id="">
       <colgroup>
-        <col style="width:24%">
-        <col style="width:38%">
-        <col style="width:19%">
-        <col style="width:19%">
+        <col style="width:33%">
+        <col style="width:66%">
       </colgroup>
       <thead class="hiddenHeader" style="">
       <tr>
         <th class="personHeader">Person</th>
         <th class="eventsHeader">Events</th>
-        <th>Parents</th>
-        <th>Spouse</th>
       </tr>
       </thead>
       <tbody class="resultsRecords">
-      <tr class="person">
+      <tr class="person" ng-repeat="person in ancestry">
         <td>
           <div class="personWrapper">
             <div class="nameWrapper">
-              <i class="fs-icon-male icon-rounded">&nbsp;</i> <a href="#" class="male personcard name">Pranas Paukstys</a>
+              <i class="icon-rounded" ng-class="{'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}">&nbsp;</i>
+              <a href="" class="personcard name" ng-click="select(person)">{{person.display.name}}</a>
             </div>
             <ul class="list-collapsed">
-              <li class="pid">277H-SWR</li>
-              <li><span class="badge">42</span></li>
+              <li class="pid">{{person.id}}</li>
             </ul>
           </div>
         </td>
         <td class="primaryEvents">
-          <div class="event birthEvent">
+          <div class="event clearfix">
             <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
-            <span class="eventDate">16 August 1919</span>
-            , <span class="eventPlace">, Lithuania</span>
+            <span class="eventDate">{{person.display.birthDate}}</span>
+            <span class="eventPlace"><span ng-show="person.display.birthPlace">,&nbsp;</span>{{person.display.birthPlace}}</span>
           </div>
-          <div class="event death deathEvent">
+          <div class="event clearfix">
             <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
-            <span class="eventDate">17 March 1971</span>
-            <span class="eventPlace">, Chicago, Cook, Illinois, United States</span>
-          </div>
-        </td>
-        <td class="parents micro">
-          <div class="connector visible-lg visible-md">
-            &nbsp;
-          </div>
-          <div class="coupleWrapper">
-            <div class="personWrapper">
-              <div class="nameWrapper">
-                <i class="fs-icon-male icon-rounded">&nbsp;</i>
-                <span class="male personcard name">Bronius Paukstys</span>
-              </div>
-            </div>
-            <div class="personWrapper">
-              <div class="nameWrapper">
-                <i class="fs-icon-female icon-rounded">&nbsp;</i>
-                <span class="male personcard name">Mrs Paukstys</span>
-              </div>
-            </div>
-          </div>
-          <div class="clearboth">
-            &nbsp;
-          </div>
-        </td>
-        <td class="spouse micro">
-          <div class="personWrapper">
-            <div class="nameWrapper">
-              <i class="fs-icon-female icon-rounded">&nbsp;</i> <span class="female personcard name">Mute Paukstys</span>
-            </div>
+            <span class="eventDate">{{person.display.deathDate}}</span>
+            <span class="eventPlace"><span ng-show="person.display.deathPlace">,&nbsp;</span>{{person.display.deathPlace}}</span>
           </div>
         </td>
       </tr>

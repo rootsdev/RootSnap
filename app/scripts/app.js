@@ -6,7 +6,7 @@ angular.module('rootSnapApp', [
   'ngSanitize',
   'ngRoute'
 ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider, $locationProvider, ListCtrlResolver) {
     $locationProvider.html5Mode(false).hashPrefix('!');
     $routeProvider
       .when('/', {
@@ -15,7 +15,8 @@ angular.module('rootSnapApp', [
       })
       .when('/list', {
         templateUrl: 'views/list.html',
-        controller: 'ListCtrl'
+        controller: 'ListCtrl',
+        resolve: ListCtrlResolver
       })
       .when('/profile', {
         templateUrl: 'views/profile.html',

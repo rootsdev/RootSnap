@@ -15,6 +15,10 @@ angular.module('rootSnapApp')
       auto_signin: true
     });
 
+    $window.FamilySearch.Person.prototype.isMale = function() {
+      return this.display.gender === 'Male';
+    };
+
     // Public API here
     return $window.FamilySearch;
   });
