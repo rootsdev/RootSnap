@@ -12,6 +12,14 @@ angular.module('rootSnapApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/list', {
+        templateUrl: 'views/list.html',
+        controller: 'ListCtrl'
+      })
+      .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
