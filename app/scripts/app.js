@@ -6,7 +6,7 @@ angular.module('rootSnapApp', [
   'ngSanitize',
   'ngRoute'
 ])
-  .config(function ($routeProvider, $locationProvider, ListCtrlResolver) {
+  .config(function ($routeProvider, $locationProvider, ListCtrlResolver, ProfileCtrlResolver) {
     $locationProvider.html5Mode(false).hashPrefix('!');
     $routeProvider
       .when('/', {
@@ -20,7 +20,8 @@ angular.module('rootSnapApp', [
       })
       .when('/profile', {
         templateUrl: 'views/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        resolve: ProfileCtrlResolver
       })
       .otherwise({
         redirectTo: '/'

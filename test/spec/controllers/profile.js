@@ -12,11 +12,13 @@ describe('Controller: ProfileCtrl', function () {
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     ProfileCtrl = $controller('ProfileCtrl', {
-      $scope: scope
+      $scope: scope,
+      person: {id: '123'},
+      portraitURL: ''
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should initialize correctly', function () {
+    expect(scope.person.id).toBe('123');
   });
 });
