@@ -4,7 +4,8 @@ angular.module('rootSnapApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'wu.masonry'
 ])
   .config(function ($routeProvider, $locationProvider, ListCtrlResolver, ProfileCtrlResolver) {
     $locationProvider.html5Mode(false).hashPrefix('!');

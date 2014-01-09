@@ -14,7 +14,8 @@ describe('Controller: ProfileCtrl', function () {
     ProfileCtrl = $controller('ProfileCtrl', {
       $scope: scope,
       person: {id: '123'},
-      portraitURL: ''
+      portraitURL: '',
+      photos: []
     });
   }));
 

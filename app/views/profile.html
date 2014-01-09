@@ -14,43 +14,13 @@
   <div class="clearboth"></div>
 </div>
 
-<section class="album-content" data-control="Masonry">
-  <div id="container" class="photos-container">
-    <div id="photo-2786665" class="box photo col2 sharp-shadow">
-      <a href="https://familysearch.org/photos/images/2786665?cc=UNKNOWN">
-        <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-300-40950-31-2/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="Ancestor Photo">
+<section class="album-content">
+  <div masonry id="container" class="photos-container">
+    <div class="masonry-brick" ng-repeat="photo in photos">
+      <a href="{{photo.about}}">
+        <img ng-src="{{photo.getThumbnailURL()}}">
       </a>
-      <div class="photoTitle"></div>
-    </div>
-    <div id="photo-2786656" class="box photo col2 sharp-shadow">
-      <a href="https://familysearch.org/photos/images/2786656?cc=UNKNOWN">
-        <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-300-40950-22-97/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
-      </a>
-      <div class="photoTitle"></div>
-    </div>
-    <div id="photo-2786649" class="box photo col2 sharp-shadow">
-      <a href="https://familysearch.org/photos/images/2786649?cc=UNKNOWN">
-        <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-301-40950-19-28/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
-      </a>
-      <div class="photoTitle"></div>
-    </div>
-    <div id="photo-166704" class="box photo col2 sharp-shadow">
-      <a href="https://familysearch.org/photos/images/166704?cc=UNKNOWN">
-        <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-235-35519-16-47/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
-      </a>
-      <div class="photoTitle">Dovydas Romualdas Paukstys</div>
-    </div>
-    <div id="photo-166676" class="box photo col2 sharp-shadow">
-      <a href="https://familysearch.org/photos/images/166676?cc=UNKNOWN">
-        <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-230-35519-3-78/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
-      </a>
-      <div class="photoTitle">Dovydas Romualdas Paukstys</div>
-    </div>
-    <div id="photo-232" class="box photo col2 sharp-shadow">
-      <a href="https://familysearch.org/photos/images/232?cc=UNKNOWN">
-        <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-235-31775-4-34/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
-      </a>
-      <div class="photoTitle"></div>
+      <div class="photoTitle">{{photo.getTitle()}}</div>
     </div>
   </div>
 </section>
