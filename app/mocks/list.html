@@ -1,0 +1,103 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>RootSnap - Web</title>
+  <meta name="viewport" content="width=device-width">
+  <link href="../styles/bootstrap.css" rel="stylesheet">
+  <link href="../styles/FamilySearch-Icons.css" rel="stylesheet">
+  <link href="../styles/main.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        RootSnap
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="searchResultsTable grid table table-striped table-hover tree-family" id="">
+        <colgroup>
+          <col style="width:24%">
+          <col style="width:38%">
+          <col style="width:19%">
+          <col style="width:19%">
+        </colgroup>
+        <thead class="hiddenHeader" style="">
+          <tr>
+            <th class="personHeader">Person</th>
+            <th class="eventsHeader">Events</th>
+            <th>Parents</th>
+            <th>Spouse</th>
+          </tr>
+        </thead>
+        <tbody class="resultsRecords">
+          <tr class="person">
+            <td>
+              <div class="personWrapper">
+                <div class="nameWrapper">
+                  <i class="fs-icon-male icon-rounded">&nbsp;</i> <a href="#" class="male personcard name">Pranas Paukstys</a>
+                </div>
+                <ul class="list-collapsed">
+                  <li class="pid">277H-SWR</li>
+                  <li><span class="badge">42</span></li>
+                </ul>
+              </div>
+            </td>
+            <td class="primaryEvents">
+              <div class="event birthEvent">
+                <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
+                <span class="eventDate">16 August 1919</span>
+                , <span class="eventPlace">, Lithuania</span>
+              </div>
+              <div class="event death deathEvent">
+                <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
+                <span class="eventDate">17 March 1971</span>
+                <span class="eventPlace">, Chicago, Cook, Illinois, United States</span>
+              </div>
+            </td>
+            <td class="parents micro">
+              <div class="connector visible-lg visible-md">
+                &nbsp;
+              </div>
+              <div class="coupleWrapper">
+                <div class="personWrapper">
+                  <div class="nameWrapper">
+                    <i class="fs-icon-male icon-rounded">&nbsp;</i>
+                    <span class="male personcard name">Bronius Paukstys</span>
+                  </div>
+                </div>
+                <div class="personWrapper">
+                  <div class="nameWrapper">
+                    <i class="fs-icon-female icon-rounded">&nbsp;</i>
+                    <span class="male personcard name">Mrs Paukstys</span>
+                  </div>
+                </div>
+              </div>
+              <div class="clearboth">
+                &nbsp;
+              </div>
+            </td>
+            <td class="spouse micro">
+              <div class="personWrapper">
+                <div class="nameWrapper">
+                  <i class="fs-icon-female icon-rounded">&nbsp;</i> <span class="female personcard name">Mute Paukstys</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
