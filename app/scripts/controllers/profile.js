@@ -21,7 +21,6 @@ angular.module('rootSnapApp')
     if (portraitURL) {
       $scope.portraitStyle = 'background: url('+portraitURL+') center center no-repeat; background-size:cover';
     }
-    console.log('photos',photos);
     $scope.photos = [];
     for (var i = 0, len = photos.length; i < len; i++) {
       if (photos[i].mediaType.substring(0,6) === 'image/') {
