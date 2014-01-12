@@ -48,4 +48,6 @@ angular.module('rootSnapApp', [
       });
   });
 
-
+if (steroids) {
+  steroids.view.setAllowedRotations([0,180,-90,90]);  // Will rotate to every direction
+}
