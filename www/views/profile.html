@@ -1,0 +1,28 @@
+<div class="tree-family jumbotron" ng-class="{'jumbo-male': person.isMale(), 'jumbo-female': !person.isMale()}">
+  <div class="personWrapper">
+    <span class="pid hidden-xs hidden-sm">{{person.id}}</span>
+
+    <div class="nameWrapper">
+      <i class="icon-rounded" ng-class="{hasImage: portraitStyle, 'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}" style="{{portraitStyle}}">
+        &nbsp;</i> <h1>{{person.display.name}}</h1>
+      <button class="btn btn-lg btn-default pull-right hidden-xs" ng-class="{'hide': footerNavBar}" ng-controller="PhotoCtrl" ng-click="uploadPhoto()">Add Photo</button>
+      <ul class="list-collapsed">
+        <li class="lifeSpan" title="{{person.display.birthDate}} - {{person.display.deathDate}}">{{person.display.lifespan}}</li>
+      </ul>
+      <button class="btn btn-lg btn-default pull-right visible-xs" ng-class="{'hide': footerNavBar}" ng-controller="PhotoCtrl" ng-click="uploadPhoto()">Add Photo</button>
+    </div>
+  </div>
+  <div class="clearboth"></div>
+</div>
+
+<section class="album-content2">
+	<ul class="polaroids" ng-repeat="photo in photos">
+		<li>
+			<a class="img-thumbnail" href="{{photo.about}}" title="{{photo.getTitle()}}">
+	    		<img alt="{{photo.getTitle()}}" class="" ng-src="{{photo.getThumbnailURL()}}">
+			</a>
+		</li>
+	</ul>
+</section>
+
+<br class="clearboth" /><br /><br />

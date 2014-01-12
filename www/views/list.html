@@ -1,0 +1,56 @@
+<div class="page-header">
+	<h3 class="text-center">Select an Ancestor</h3>
+</div>
+<h4 class="text-center">To learn about them and have an opportunity to attach pictures to their profile</h4>
+<div class="row">
+  <div class="col-sm-12">
+  </div>
+</div>
+<br />
+<div class="row no-padding">
+  <div class="col-sm-12">
+    <table class="searchResultsTable grid table table-striped table-hover tree-family" id="">
+      <colgroup>
+        <col class="hidden-xs" >
+        <col >
+        <col>
+      </colgroup>
+      <thead class="hiddenHeader" style="">
+      <tr>
+        <th class="hidden-xs"></th>
+        <th class="personHeader">Person{{$root.test}}</th>
+        <th class="eventsHeader">Events</th>
+      </tr>
+      </thead>
+      <tbody class="resultsRecords">
+      <div ></div>
+      <tr class="person" ng-repeat="person in ancestry">
+      	<td class="hidden-xs" ng-bind-html="getAncestryHtml(person)"></td>
+        <td>
+          <div class="personWrapper">
+            <div class="nameWrapper">
+              <i class="icon-rounded" ng-class="{'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}">&nbsp;</i>
+              <a href="" class="personcard name" ng-click="select(person)">{{person.display.name}}</a>
+            </div>
+            <ul class="list-collapsed">
+              <li class="pid">{{person.id}}</li>
+            </ul>
+          </div>
+        </td>
+        <td class="primaryEvents">
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
+            <span class="eventDate">{{person.display.birthDate}}</span>
+            <span class="eventPlace"><span ng-show="person.display.birthPlace">,&nbsp;</span>{{person.display.birthPlace}}</span>
+          </div>
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
+            <span class="eventDate">{{person.display.deathDate}}</span>
+            <span class="eventPlace"><span ng-show="person.display.deathPlace">,&nbsp;</span>{{person.display.deathPlace}}</span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

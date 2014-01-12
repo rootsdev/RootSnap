@@ -1,64 +1,92 @@
-<!DOCTYPE html>
-<html ng-app="App">
-<head>
-
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
     <meta charset="utf-8">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-width, target-densitydpi=device-dpi">
-    <link rel="stylesheet" type="text/css" href="css/topcoat-mobile-light.min.css">
-    <link rel="stylesheet" type="text/css" href="css/app.min.css">
-    <title>RootSnap</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/FamilySearch-Icons.css">
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
 
-</head>
+    <!-- Begin Steroids scripts -->
 
-<body>
+	<!-- End Steroids scripts -->
 
-<div id="wrapper" ng-controller="MenuAndNavController">
+  </head>
+  <body ng-app="rootSnapApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-    <aside class="app-menu">
+    <!-- Add your site or application content here -->
 
-        <div app-menu-header></div>
+    <div class="navbar navbar navbar-default navbar-fixed-top">
+      <div class="container">
+            <div class="navbar-header">
+              <a href="#!/list" ng-class="{ 'hide': !goBackButton }" class="btn btn-default btn-sm navbar-btn navbar-left"><i class="fs-icon-arrow-left"></i> Go Back</a>
+              <a class="navbar-brand" href="#!/main">
+                RootSnap
+              </a>
+              <button ng-controller="MainCtrl" ng-click="logout()" ng-class="{ 'hide2': !signOutButton }" class="btn btn-default btn-sm navbar-btn navbar-right hidden-xs"><i class="fs-icon-sign-out"></i> Signout</button>
+            </div>
+          </div>
+    </div>
+    <div class="container" ng-view=""></div>
+    <nav ng-class="{ 'hide': !$root.footerNavBar }" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="btn-group btn-group-justified ng-scope">
+        <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="takeMobilePhoto()"><i class="fs-icon-camera"></i> Take Photo</a>
+        <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="selectMobilePhoto()"><i class="fs-icon-albums"></i> Add Existing Photo</a>
+      </div>
+    </nav>
 
-        <div app-menu-content></div>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    </aside>
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
 
-    <article id="main-app" class="main-app-container" ng-class="{ 'menu-displayed': menuShown , 'menu-hidden': !menuShown }">
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
 
-        <header>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="components/es5-shim/es5-shim.js"></script>
+    <script src="components/steroids-js/steroids.js"></script>
+    <script src="components/json3/lib/json3.min.js"></script>
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-resource/angular-resource.js"></script>
+    <script src="components/angular-cookies/angular-cookies.js"></script>
+    <script src="components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="components/angular-route/angular-route.js"></script>
+    <script src="components/familysearch-javascript-sdk/familysearch-javascript-sdk.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
-            <div main-app-navigation></div>
-
-        </header>
-
-        <div class="scrolling-container">
-
-            <section>
-
-                <ng-view>
-
-                </ng-view>
-
-            </section>
-
-        </div>
-
-    </article>
-
-</div> <!-- End of wrapper -->
-
-<script src="phonegap.js"></script>
-<script src="js/libraries/angular.min.js"></script>
-<script src="js/libraries/hammer.min.js"></script>
-<script src="js/libraries/angular-hammer.js"></script>
-<script src="js/libraries/angular-local-storage.js"></script>
-<script src="js/appCompiled.min.js">
-
-</script>
-
-<script type="text/javascript">
-    phonegapApp.initialize();
-</script>
-
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="/scripts/app.js"></script>
+        <script src="/scripts/controllers/main.js"></script>
+        <script src="/scripts/controllers/list.js"></script>
+        <script src="/scripts/controllers/profile.js"></script>
+        <script src="/scripts/controllers/photo.js"></script>
+        <script src="/scripts/services/familysearch.js"></script>
+        <!-- endbuild -->
 </body>
 </html>

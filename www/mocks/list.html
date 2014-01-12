@@ -1,0 +1,199 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>RootSnap - Web</title>
+  <meta name="viewport" content="width=device-width">
+  <link href="../styles/bootstrap.css" rel="stylesheet">
+  <link href="../styles/FamilySearch-Icons.css" rel="stylesheet">
+  <link href="../styles/main.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="navbar navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        RootSnap
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row no-padding">
+    <div class="col-sm-12">
+	<table class="searchResultsTable grid table table-striped table-hover tree-family" id="">
+      <colgroup>
+        <col class="hidden-xs" style="width:60px;">
+        <col>
+        <col style="width:50%">
+      </colgroup>
+      <thead class="hiddenHeader" style="">
+      <tr>
+        <th class="hidden-xs"></th>
+        <th class="personHeader">Person</th>
+        <th class="eventsHeader">Events</th>
+      </tr>
+      </thead>
+      <tbody class="resultsRecords">
+      
+      <!-- ngRepeat: person in ancestry --><tr class="person ng-scope" ng-repeat="person in ancestry">
+      	<td class="hidden-xs ng-binding" ng-bind-html="getAncestryHtml(person)"><div class="dots"><span class="male"></span><span class="male"></span></div></td>
+        <td>
+          <div class="personWrapper">
+            <div class="nameWrapper">
+              <i class="icon-rounded fs-icon-male" ng-class="{'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}">&nbsp;</i>
+              <a href="" class="personcard name ng-binding" ng-click="select(person)">Grandpapa Quass</a>
+            </div>
+            <ul class="list-collapsed">
+              <li class="pid ng-binding">KW72-8QQ</li>
+            </ul>
+          </div>
+        </td>
+        <td class="primaryEvents">
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
+            <span class="eventDate ng-binding">1900</span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.birthPlace" class="">,&nbsp;</span>Minnesota, United States</span>
+          </div>
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
+            <span class="eventDate ng-binding">1960</span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.deathPlace" class="">,&nbsp;</span>Minnesota, United States</span>
+          </div>
+        </td>
+      </tr><!-- end ngRepeat: person in ancestry --><tr class="person ng-scope" ng-repeat="person in ancestry">
+      	<td class="hidden-xs ng-binding" ng-bind-html="getAncestryHtml(person)"><div class="dots"><span class="male"></span><span class="female"></span></div></td>
+        <td>
+          <div class="personWrapper">
+            <div class="nameWrapper">
+              <i class="icon-rounded fs-icon-female" ng-class="{'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}">&nbsp;</i>
+              <a href="" class="personcard name ng-binding" ng-click="select(person)">Grandmama Quass</a>
+            </div>
+            <ul class="list-collapsed">
+              <li class="pid ng-binding">KW72-8QW</li>
+            </ul>
+          </div>
+        </td>
+        <td class="primaryEvents">
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
+            <span class="eventDate ng-binding">1901</span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.birthPlace" class="">,&nbsp;</span>Minnesota</span>
+          </div>
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
+            <span class="eventDate ng-binding">1961</span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.deathPlace" class="">,&nbsp;</span>Minnesota</span>
+          </div>
+        </td>
+      </tr><!-- end ngRepeat: person in ancestry --><tr class="person ng-scope" ng-repeat="person in ancestry">
+      	<td class="hidden-xs ng-binding" ng-bind-html="getAncestryHtml(person)"><div class="dots"><span class="male"></span></div></td>
+        <td>
+          <div class="personWrapper">
+            <div class="nameWrapper">
+              <i class="icon-rounded fs-icon-male" ng-class="{'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}">&nbsp;</i>
+              <a href="" class="personcard name ng-binding" ng-click="select(person)">Papa Quass</a>
+            </div>
+            <ul class="list-collapsed">
+              <li class="pid ng-binding">KW7V-Y32</li>
+            </ul>
+          </div>
+        </td>
+        <td class="primaryEvents">
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
+            <span class="eventDate ng-binding">1940</span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.birthPlace" class="">,&nbsp;</span>Minnesota, United States</span>
+          </div>
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
+            <span class="eventDate ng-binding"></span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.deathPlace" class="ng-hide">,&nbsp;</span></span>
+          </div>
+        </td>
+      </tr><!-- end ngRepeat: person in ancestry --><tr class="person ng-scope" ng-repeat="person in ancestry">
+      	<td class="hidden-xs ng-binding" ng-bind-html="getAncestryHtml(person)"><div class="dots"><span class="female"></span><span class="male"></span></div></td>
+        <td>
+          <div class="personWrapper">
+            <div class="nameWrapper">
+              <i class="icon-rounded fs-icon-male" ng-class="{'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}">&nbsp;</i>
+              <a href="" class="personcard name ng-binding" ng-click="select(person)">Grandpapa Doe</a>
+            </div>
+            <ul class="list-collapsed">
+              <li class="pid ng-binding">KW7L-3V5</li>
+            </ul>
+          </div>
+        </td>
+        <td class="primaryEvents">
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
+            <span class="eventDate ng-binding">1800</span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.birthPlace" class="">,&nbsp;</span>Minnesota, United States</span>
+          </div>
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
+            <span class="eventDate ng-binding"></span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.deathPlace" class="ng-hide">,&nbsp;</span></span>
+          </div>
+        </td>
+      </tr><!-- end ngRepeat: person in ancestry --><tr class="person ng-scope" ng-repeat="person in ancestry">
+      	<td class="hidden-xs ng-binding" ng-bind-html="getAncestryHtml(person)"><div class="dots"><span class="female"></span></div></td>
+        <td>
+          <div class="personWrapper">
+            <div class="nameWrapper">
+              <i class="icon-rounded fs-icon-female" ng-class="{'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}">&nbsp;</i>
+              <a href="" class="personcard name ng-binding" ng-click="select(person)">Mama Quass</a>
+            </div>
+            <ul class="list-collapsed">
+              <li class="pid ng-binding">KW72-8QM</li>
+            </ul>
+          </div>
+        </td>
+        <td class="primaryEvents">
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
+            <span class="eventDate ng-binding">January 2, 1941</span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.birthPlace" class="">,&nbsp;</span>Minnesota</span>
+          </div>
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
+            <span class="eventDate ng-binding"></span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.deathPlace" class="ng-hide">,&nbsp;</span></span>
+          </div>
+        </td>
+      </tr><!-- end ngRepeat: person in ancestry --><tr class="person ng-scope" ng-repeat="person in ancestry">
+      	<td class="hidden-xs ng-binding" ng-bind-html="getAncestryHtml(person)"></td>
+        <td>
+          <div class="personWrapper">
+            <div class="nameWrapper">
+              <i class="icon-rounded fs-icon-male" ng-class="{'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}">&nbsp;</i>
+              <a href="" class="personcard name ng-binding" ng-click="select(person)">API User 3206</a>
+            </div>
+            <ul class="list-collapsed">
+              <li class="pid ng-binding">KW31-H9P</li>
+            </ul>
+          </div>
+        </td>
+        <td class="primaryEvents">
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
+            <span class="eventDate ng-binding">April 1, 1950</span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.birthPlace" class="">,&nbsp;</span>Utah</span>
+          </div>
+          <div class="event clearfix">
+            <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
+            <span class="eventDate ng-binding"></span>
+            <span class="eventPlace ng-binding"><span ng-show="person.display.deathPlace" class="ng-hide">,&nbsp;</span></span>
+          </div>
+        </td>
+      </tr><!-- end ngRepeat: person in ancestry -->
+      </tbody>
+    </table>      
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<div class="tree-family jumbotron">
+  <div class="personWrapper">
+    <span class="pid hidden-xs hidden-sm">{{person.id}}</span>
+
+    <div class="nameWrapper">
+      <i class="fs-icon-male icon-rounded" ng-class="{hasImage: portraitStyle}" style="{{portraitStyle}}">
+        &nbsp;</i> <h1>{{person.display.name}}</h1>
+      <button class="btn btn-lg btn-default pull-right">Add Photo</button>
+      <ul class="list-collapsed">
+        <li class="lifeSpan" title="{{person.display.birthDate}} - {{person.display.deathDate}}">{{person.display.lifespan}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="clearboth"></div>
+</div>
+
+<section class="album-content2">
+	<ul class="polaroids" ng-repeat="photo in photos">
+		<li>
+			<a class="img-thumbnail" href="{{photo.about}}" title="{{photo.getTitle()}}">
+	    		<img alt="{{photo.getTitle()}}" class="" ng-src="{{photo.getThumbnailURL()}}">
+			</a>
+		</li>
+	</ul>
+</section>
+
+<br class="clearboth" /><br /><br />
+<center><a href="#!/list" class="btn btn-success btn-large"><i class="fs-icon-arrow-left"></i> Go Back</a></center>

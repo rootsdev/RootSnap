@@ -1,0 +1,35 @@
+'use strict';
+/*jshint bitwise: false*/
+angular.module('rootSnapApp')
+  .constant('ListCtrlResolver', {
+    ancestry: function(familysearch) {
+      return familysearch.getCurrentUserPersonId().then(function(id) {
+        return familysearch.getAncestry(id, {personDetails: true}).then(function(response) {
+          return response.getPersons();
+        });
+      });
+    }
+  })
+  .controller('ListCtrl', function ($scope, $location, ancestry) {
+console.log('here');
+    $scope.ancestry = ancestry;
+    $scope.$parent.signOut = true;
+    $scope.$parent.footerNavbar = false;
+
+    $scope.getAncestryHtml = function(person) {
+      var n = person.getAscendancyNumber();
+      var result = '';
+      while (n > 1) {
+        result = ( ( n & 1 ) ? '<span class="female"></span>' : '<span class="male"></span>' ) + result;
+        n = n>>1;
+      }
+      if (result !== '') {
+        result = '<div class="dots">'+result+'</div>';
+      }
+      return result;
+    };
+
+    $scope.select = function(person) {
+      $location.path('/profile').search({id: person.id});
+    };
+  });

@@ -1,8 +1,19 @@
 {
-  "name": "RootSnap",
-  "version": "0.0.1",
+  "name": "Root Snap",
+  "version": "0.0.0",
   "authors": [
   ],
+  "dependencies": {
+  	"steroids-js": "3.1.x",
+    "json3": "3.2.6",
+    "es5-shim": "2.1.0",
+    "angular": "1.2.6",
+    "angular-resource": "1.2.6",
+    "angular-cookies": "1.2.6",
+    "angular-sanitize": "1.2.6",
+    "angular-route": "1.2.6",
+    "familysearch-javascript-sdk": "git://github.com/rootsdev/familysearch-javascript-sdk.git#gh-pages"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
@@ -10,8 +21,9 @@
     "www/spec",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "steroids-js": "3.1.x"
+  ],  
+  "devDependencies": {
+    "angular-mocks": "1.2.6",
+    "angular-scenario": "1.2.6"
   }
 }

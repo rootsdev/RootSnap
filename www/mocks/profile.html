@@ -1,0 +1,103 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>RootSnap - Web</title>
+  <meta content="width=device-width" name="viewport">
+  <link href="../styles/bootstrap.css" rel="stylesheet">
+  <link href="../styles/FamilySearch-Icons.css" rel="stylesheet">
+  <link href="../styles/main.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="navbar navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        RootSnap
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="tree-family jumbotron">
+    <div class="personWrapper">
+      <span class="pid hidden-xs hidden-sm">277H-SWR</span>
+
+      <div class="nameWrapper">
+        <!--
+                        If no image, remove the hasImage class and all of the style=""
+        -->
+        <i class="fs-icon-male icon-rounded hasImage" style=
+            "background: url(https://familysearch.org/patron/v2/TH-233-35519-17-58/thumb200s.jpg?ctx=ArtCtxPublic) center center no-repeat; background-size:cover;">
+          &nbsp;</i> <h1>Pranas Paukstys</h1>
+        <button class="btn btn-lg btn-default pull-right">Add Photo</button>
+        <ul class="list-collapsed">
+          <li class="lifeSpan" title="August 16, 1919 - March 17, 1971">1919-1971</li>
+        </ul>
+      </div>
+    </div>
+    <div class="clearboth"></div>
+  </div>
+
+<ul class="gallery">
+		<li><a href="http://www.flickr.com/photos/claudio_ar/2214532638/" class="pic-1"><img src="images/1.jpg" alt="Photograph of a waterfall" /></a></li>
+		<li><a href="http://www.flickr.com/photos/galego/3131005845/" class="pic-2"><img src="images/2.jpg" alt="Photograph of clouds and sunlight" /></a></li>
+		<li><a href="http://www.flickr.com/photos/claudio_ar/1810490865/" class="pic-3"><img src="images/3.jpg" alt="Photograph of a lake scene at dusk" /></a></li>
+		<li><a href="http://www.flickr.com/photos/claudio_ar/2952099761/" class="pic-4"><img src="images/4.jpg" alt="Photograph of a tree and green grass" /></a></li>
+		<li><a href="http://www.flickr.com/photos/claudio_ar/2811295698/" class="pic-5"><img src="images/5.jpg" alt="Photograph of a beach sunset" /></a></li>
+		<li><a href="http://www.flickr.com/photos/claudio_ar/2601700491/" class="pic-6"><img src="images/6.jpg" alt="Photograph of a flower and lake" /></a></li>
+	</ul>
+
+  <section class="album-content">
+  	<ul class="polaroids polaroid-image" ng-repeat="photo in photos">
+		<li>
+			<a href="https://familysearch.org/photos/images/2786665?cc=UNKNOWN" title="Ancestor Photo">
+	    		<img alt="Ancestor Photo" ng-src="https://familysearch.org/patron/v2/TH-300-40950-31-2/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0">
+			</a>
+		</li>
+	</ul>
+
+    <div id="container" class="photos-container">
+      <div id="photo-2786665" class="box photo col2 sharp-shadow">
+        <a href="https://familysearch.org/photos/images/2786665?cc=UNKNOWN">
+          <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-300-40950-31-2/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="Ancestor Photo">
+        </a>
+        <div class="photoTitle"></div>
+      </div>
+      <div id="photo-2786656" class="box photo col2 sharp-shadow">
+        <a href="https://familysearch.org/photos/images/2786656?cc=UNKNOWN">
+          <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-300-40950-22-97/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
+        </a>
+        <div class="photoTitle"></div>
+      </div>
+      <div id="photo-2786649" class="box photo col2 sharp-shadow">
+        <a href="https://familysearch.org/photos/images/2786649?cc=UNKNOWN">
+          <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-301-40950-19-28/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
+        </a>
+        <div class="photoTitle"></div>
+      </div>
+      <div id="photo-166704" class="box photo col2 sharp-shadow">
+        <a href="https://familysearch.org/photos/images/166704?cc=UNKNOWN">
+          <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-235-35519-16-47/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
+        </a>
+        <div class="photoTitle">Dovydas Romualdas Paukstys</div>
+      </div>
+      <div id="photo-166676" class="box photo col2 sharp-shadow">
+        <a href="https://familysearch.org/photos/images/166676?cc=UNKNOWN">
+          <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-230-35519-3-78/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
+        </a>
+        <div class="photoTitle">Dovydas Romualdas Paukstys</div>
+      </div>
+      <div id="photo-232" class="box photo col2 sharp-shadow">
+        <a href="https://familysearch.org/photos/images/232?cc=UNKNOWN">
+          <img class="approved lazy placeholder-img" src="https://familysearch.org/patron/v2/TH-235-31775-4-34/thumb200.jpg?ctx=ArtCtxPublic&amp;angle=0" alt="{{title}}" width="{{width}}" height="{{height}}" style="height:{{width}}px; width:{{height}}px">
+        </a>
+        <div class="photoTitle"></div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
