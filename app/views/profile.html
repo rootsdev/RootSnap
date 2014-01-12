@@ -3,9 +3,11 @@
     <span class="pid hidden-xs hidden-sm">{{person.id}}</span>
 
     <div class="nameWrapper">
-      <i class="fs-icon-male icon-rounded" ng-class="{hasImage: portraitStyle}" style="{{portraitStyle}}">
-        &nbsp;</i> <h1>{{person.display.name}}</h1>
-      <button class="btn btn-lg btn-default pull-right">Add Photo</button>
+      <i class="fs-icon-male icon-rounded" ng-class="{hasImage: portraitStyle}" style="{{portraitStyle}}">&nbsp;</i>
+      <h1>{{person.display.name}}</h1>
+      <div class="btn btn-lg btn-default btn-file pull-right">
+        Add photo <input type="file" onchange="angular.element(this).scope().uploadFile(this)">
+      </div>
       <ul class="list-collapsed">
         <li class="lifeSpan" title="{{person.display.birthDate}} - {{person.display.deathDate}}">{{person.display.lifespan}}</li>
       </ul>

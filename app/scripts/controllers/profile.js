@@ -27,4 +27,11 @@ angular.module('rootSnapApp')
         $scope.photos.push(photos[i]);
       }
     }
+
+    $scope.uploadFile = function(element) {
+      console.log(element.files[0]);
+      var fd = new FormData();
+      fd.append('file', element.files[0]);
+      // TODO finish this
+    };
   });
