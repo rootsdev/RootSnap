@@ -24,7 +24,7 @@
 	<!-- End Steroids scripts -->
 
   </head>
-  <body ng-app="rootSnapApp">
+  <body ng-app="rootSnapApp" ng-controller="RootCtrl" >
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -34,20 +34,25 @@
     <div class="navbar navbar navbar-default navbar-fixed-top">
       <div class="container">
             <div class="navbar-header">
-              <a href="#!/list" ng-class="{ 'hide': !goBackButton }" class="btn btn-default btn-sm navbar-btn navbar-left"><i class="fs-icon-arrow-left"></i> Go Back</a>
+              <button ng-class="{ 'forced-hide': !goBackButton }" class="goBackButton btn btn-default btn-sm navbar-btn hidden-xs" ng-click="loadPage('/list')"><i class="fs-icon-arrow-left"></i> Go Back</button>
+              <button class="goBackButton btn btn-default btn-sm navbar-btn visible-xs" ng-click="loadPage('/list')" ng-class="{ 'forced-hide': !goBackButton }"><i class="fs-icon-arrow-left"></i></button>
               <a class="navbar-brand" href="#!/main">
                 RootSnap
               </a>
-              <button ng-controller="MainCtrl" ng-click="logout()" ng-class="{ 'hide2': !signOutButton }" class="btn btn-default btn-sm navbar-btn navbar-right hidden-xs"><i class="fs-icon-sign-out"></i> Signout</button>
+              <button ng-controller="LoginCtrl" ng-click="logout()" ng-class="{ 'forced-hide': !signOutButton }" class="signOutButton btn btn-default btn-sm navbar-btn hidden-xs"><i class="fs-icon-sign-out"></i> Signout</button><button ng-controller="LoginCtrl" ng-click="logout()" ng-class="{ 'forced-hide': !signOutButton }" class="btn btn-default btn-sm navbar-btn visible-xs signOutButton"><i class="fs-icon-sign-out"></i> </button>
             </div>
           </div>
     </div>
     <div class="container" ng-view=""></div>
-    <nav ng-class="{ 'hide': !$root.footerNavBar }" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-      <div class="btn-group btn-group-justified ng-scope">
-        <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="takeMobilePhoto()"><i class="fs-icon-camera"></i> Take Photo</a>
-        <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="selectMobilePhoto()"><i class="fs-icon-albums"></i> Add Existing Photo</a>
+    <nav ng-class="{ 'forced-hide': !footerNavBar }" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="btn-group btn-group-justified ng-scope hidden-xs">
+        <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="takeMobilePhoto()"><i class="fs-icon-camera"></i> Capture Photo</a>
+        <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="selectMobilePhoto()"><i class="fs-icon-albums"></i> Choose Photo</a>
       </div>
+      <div class="btn-group btn-group-justified ng-scope visible-xs">
+        <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="takeMobilePhoto()"><i class="fs-icon-camera"></i> Capture</a>
+        <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="selectMobilePhoto()"><i class="fs-icon-albums"></i> Choose</a>
+      </div>      
     </nav>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -82,7 +87,8 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="/scripts/app.js"></script>
-        <script src="/scripts/controllers/main.js"></script>
+        <script src="/scripts/controllers/root.js"></script>
+        <script src="/scripts/controllers/login.js"></script>
         <script src="/scripts/controllers/list.js"></script>
         <script src="/scripts/controllers/profile.js"></script>
         <script src="/scripts/controllers/photo.js"></script>

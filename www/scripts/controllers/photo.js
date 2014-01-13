@@ -3,8 +3,15 @@
 angular.module('rootSnapApp')
 //.controller('PhotoCtrl', function ($scope, familysearch, $location) {
 .controller('PhotoCtrl', function ($scope, $rootScope) {
-  $scope.footerNavBar = false;
-  $rootScope.footerNavBar = false;
+  
+  $scope.openPhoto = function(url) {
+    if (isMobile) {
+      var ref = window.open(url, '_blank', 'location=yes'); 
+      return false;
+    }
+    
+  }
+
   $scope.uploadPhoto = function() {
     //alert('Upload from computer Function');
   };

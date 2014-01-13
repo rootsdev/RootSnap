@@ -10,11 +10,13 @@ angular.module('rootSnapApp')
       });
     }
   })
-  .controller('ListCtrl', function ($scope, $location, ancestry) {
-console.log('here');
+  .controller('ListCtrl', function ($scope, $location, ancestry, $rootScope) {
+
+    $rootScope.signOutButton = true;
+    $rootScope.goBackButton = false;
+    $rootScope.footerNavbar = false;
+
     $scope.ancestry = ancestry;
-    $scope.$parent.signOut = true;
-    $scope.$parent.footerNavbar = false;
 
     $scope.getAncestryHtml = function(person) {
       var n = person.getAscendancyNumber();

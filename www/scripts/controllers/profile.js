@@ -17,11 +17,12 @@ angular.module('rootSnapApp')
     }
   })
   .controller('ProfileCtrl', function ($scope, person, portraitURL, photos, $rootScope) {
-    $scope.person = person;
+    
+    $rootScope.footerNavbar = true;
+    $rootScope.signOutButton = true;
+    $rootScope.goBackButton = true;
 
-    $scope.$parent.signOutButton = true;
-    $scope.$parent.goBackButton = true;
-    $rootScope.footerNavBar = true;
+    $scope.person = person;
 
     if (portraitURL) {
       $scope.portraitStyle = 'background: url('+portraitURL+') center center no-repeat; background-size:cover';

@@ -1,0 +1,29 @@
+<div class="jumbotron text-center">
+  <h1>
+    <img src="/images/logo.png">
+  </h1>
+  <p>A quick snapshot of your ancestors</p>
+</div>
+<div class="text-center" ng-class="{ 'hide': isMobile }">
+  <a href="" class="btn btn-default btn-lg" ng-click="login()">Login</a>
+</div>
+
+
+<form role="form" class="text-center" ng-class="{ 'hide': !isMobile }">
+  <div class="form-group">
+    <input ng-model="user.name" class="form-control text-center" id="name" autocomplete="off" placeholder="Username" required>
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control text-center" ng-model="user.password" id="password" autocomplete="off" placeholder="Password" required>
+  </div>
+  <button type="submit" ng-click="mobileLogin(user)"
+                ng-disabled="!user.name || !user.password" class="btn btn-default">Sign in</button>
+</form>
+ 
+
+<div class="text-center"><br /><br />
+  <div class="btn-group">
+    <a href="mocks/list.html" class="btn btn-warning">Mock List</a>
+    <a href="mocks/profile.html" class="btn btn-warning">Mock Profile</a>
+  </div>
+</div>

@@ -10,8 +10,8 @@ angular.module('rootSnapApp', [
     $locationProvider.html5Mode(false).hashPrefix('!');
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
       })
       .when('/list', {
         templateUrl: 'views/list.html',
@@ -47,7 +47,3 @@ angular.module('rootSnapApp', [
         redirectTo: '/'
       });
   });
-
-if (steroids) {
-  steroids.view.setAllowedRotations([0,180,-90,90]);  // Will rotate to every direction
-}
