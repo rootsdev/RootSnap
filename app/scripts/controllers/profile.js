@@ -16,22 +16,42 @@ angular.module('rootSnapApp')
       });
     }
   })
-  .controller('ProfileCtrl', function ($scope, person, portraitURL, photos) {
+  .controller('ProfileCtrl', function ($scope, familysearch, person, portraitURL, photos) {
     $scope.person = person;
     if (portraitURL) {
       $scope.portraitStyle = 'background: url('+portraitURL+') center center no-repeat; background-size:cover';
     }
-    $scope.photos = [];
-    for (var i = 0, len = photos.length; i < len; i++) {
-      if (photos[i].mediaType.substring(0,6) === 'image/') {
-        $scope.photos.push(photos[i]);
+
+    $scope.photos = filterPhotos(photos);
+
+    function filterPhotos(photos) {
+      var result = [];
+      for (var i = 0, len = photos.length; i < len; i++) {
+        if (photos[i].mediaType.substring(0,6) === 'image/') {
+          result.push(photos[i]);
+        }
       }
+      return result;
     }
 
     $scope.uploadFile = function(element) {
       console.log(element.files[0]);
       var fd = new FormData();
       fd.append('file', element.files[0]);
-      // TODO finish this
+      // add memory
+      familysearch.createMemory(fd).then(function(response) {
+        // response == memory id
+        var persona = new FamilySearch.Person();
+        persona.addName(person.getNames()[0]);
+        familysearch.createMemoryPersona(response, persona).then(function(response) {
+          // response == MemoryRef
+          familysearch.addPersonMemoryRef(person.id, response).then(function(response) {
+            // re-fetch the photos
+            familysearch.getPersonMemoriesQuery(person.id, {type: 'photo'}).then(function(response) {
+              $scope.photos = filterPhotos(response.getMemories());
+            });
+          });
+        });
+      });
     };
   });
