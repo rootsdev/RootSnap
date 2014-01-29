@@ -38,7 +38,7 @@ angular.module('rootSnapApp')
     $scope.uploadFile = function(element) {
       console.log(element.files[0]);
       var fd = new FormData();
-      fd.append('file', element.files[0]);
+      fd.append('artifact', element.files[0]);
       // add memory
       familysearch.createMemory(fd).then(function(response) {
         // response == memory id
