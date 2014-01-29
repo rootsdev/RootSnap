@@ -22,17 +22,18 @@ angular.module('rootSnapApp')
       $scope.portraitStyle = 'background: url('+portraitURL+') center center no-repeat; background-size:cover';
     }
 
-    $scope.photos = filterPhotos(photos);
-
     function filterPhotos(photos) {
       var result = [];
       for (var i = 0, len = photos.length; i < len; i++) {
+        console.log('photo', photos[i]);
         if (photos[i].mediaType.substring(0,6) === 'image/') {
           result.push(photos[i]);
         }
       }
       return result;
     }
+
+    $scope.photos = filterPhotos(photos);
 
     $scope.uploadFile = function(element) {
       console.log(element.files[0]);
@@ -41,14 +42,21 @@ angular.module('rootSnapApp')
       // add memory
       familysearch.createMemory(fd).then(function(response) {
         // response == memory id
-        var persona = new FamilySearch.Person();
-        persona.addName(person.getNames()[0]);
-        familysearch.createMemoryPersona(response, persona).then(function(response) {
-          // response == MemoryRef
-          familysearch.addPersonMemoryRef(person.id, response).then(function(response) {
-            // re-fetch the photos
-            familysearch.getPersonMemoriesQuery(person.id, {type: 'photo'}).then(function(response) {
-              $scope.photos = filterPhotos(response.getMemories());
+        familysearch.getMemory(response).then(function(response) {
+          var memory = response.getMemory();
+          console.log('memory', memory);
+          var persona = new familysearch.Person();
+          persona.addName(person.display.name);
+          persona.media = [{
+            description : memory.about
+          }];
+          familysearch.createMemoryPersona(memory.id, persona).then(function(response) {
+            // response == MemoryRef
+            familysearch.addPersonMemoryRef(person.id, response).then(function() {
+              // re-fetch the photos
+              familysearch.getPersonMemoriesQuery(person.id, {type: 'photo'}).then(function(response) {
+                $scope.photos = filterPhotos(response.getMemories());
+              });
             });
           });
         });
