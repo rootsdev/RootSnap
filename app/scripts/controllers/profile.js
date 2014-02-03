@@ -8,7 +8,7 @@ angular.module('rootSnapApp')
       });
     },
     portraitURL: function(familysearch, $route) {
-      return familysearch.getPersonPortraitURL($route.current.params.id, {followRedirect: true});
+      return familysearch.getPersonPortraitUrl($route.current.params.id, {followRedirect: true});
     },
     photos: function(familysearch, $route) {
       return familysearch.getPersonMemoriesQuery($route.current.params.id, {type: 'photo'}).then(function(response) {
@@ -45,9 +45,9 @@ angular.module('rootSnapApp')
         familysearch.getMemory(response).then(function(response) {
           var memory = response.getMemory();
           var persona = new familysearch.MemoryPersona(person.$getDisplayName(), memory.about);
-          familysearch.createMemoryPersona(memory.id, persona).then(function(response) {
+          familysearch.addMemoryPersona(memory.id, persona).then(function(response) {
             // response == MemoryRef
-            familysearch.addPersonMemoryRef(person.id, response).then(function() {
+            familysearch.addMemoryPersonaRef(person.id, response).then(function() {
               // re-fetch the photos
               familysearch.getPersonMemoriesQuery(person.id, {type: 'photo'}).then(function(response) {
                 $scope.photos = filterPhotos(response.getMemories());

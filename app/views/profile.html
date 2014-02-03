@@ -20,7 +20,7 @@
   <div masonry id="container" class="photos-container">
     <div class="masonry-brick" ng-repeat="photo in photos">
       <a href="{{photo.$getImageUrl()}}">
-        <img ng-src="{{photo.$getThumbnailURL()}}">
+        <img ng-src="{{photo.$getThumbnailUrl()}}">
       </a>
       <div class="photoTitle">{{photo.$getTitle()}}</div>
     </div>
