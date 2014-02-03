@@ -44,12 +44,7 @@ angular.module('rootSnapApp')
         // response == memory id
         familysearch.getMemory(response).then(function(response) {
           var memory = response.getMemory();
-          console.log('memory', memory);
-          var persona = new familysearch.Person();
-          persona.addName(person.display.name);
-          persona.media = [{
-            description : memory.about
-          }];
+          var persona = new familysearch.MemoryPersona(person.$getDisplayName(), memory.about);
           familysearch.createMemoryPersona(memory.id, persona).then(function(response) {
             // response == MemoryRef
             familysearch.addPersonMemoryRef(person.id, response).then(function() {

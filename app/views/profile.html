@@ -19,10 +19,10 @@
 <section class="album-content">
   <div masonry id="container" class="photos-container">
     <div class="masonry-brick" ng-repeat="photo in photos">
-      <a href="{{photo.about}}">
-        <img ng-src="{{photo.getThumbnailURL()}}">
+      <a href="{{photo.$getImageUrl()}}">
+        <img ng-src="{{photo.$getThumbnailURL()}}">
       </a>
-      <div class="photoTitle">{{photo.getTitle()}}</div>
+      <div class="photoTitle">{{photo.$getTitle()}}</div>
     </div>
   </div>
 </section>
