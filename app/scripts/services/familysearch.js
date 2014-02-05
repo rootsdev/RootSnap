@@ -2,7 +2,9 @@
 
 angular.module('rootSnapApp')
   .factory('familysearch', function ($window, $http, $q, $timeout) {
-    $window.FamilySearch.init({
+    var FS = $window.FamilySearch;
+
+    FS.init({
       /* jshint camelcase:false */
       app_key: 'WCQY-7J1Q-GKVV-7DNM-SQ5M-9Q5H-JX3H-CMJK',
       environment: 'sandbox',
@@ -15,10 +17,38 @@ angular.module('rootSnapApp')
       auto_signin: true
     });
 
-    $window.FamilySearch.Person.prototype.isMale = function() {
+    FS.Person.prototype.rsIsMale = function() {
       return this.display.gender === 'Male';
     };
 
+    FS.rsUploadFile = function(person, file) {
+      var fd = new FormData();
+      fd.append('artifact', file);
+      // add memory
+      return FS.createMemory(fd).then(function(response) {
+        // response === memory id
+
+        // read the memory
+        return FS.getMemory(response).then(function(response) {
+          var memory = response.getMemory();
+
+          // create a memory persona
+          var persona = new FS.MemoryPersona(person.$getDisplayName(), memory.about);
+
+          // add the memory persona to the memory
+          return memory.$addMemoryPersona(persona).then(function(response) {
+            // response === MemoryPersonaRef
+
+            // add the memory persona ref to the person
+            return person.$addMemoryPersonaRef(response).then(function() {
+              // success
+              return memory;
+            });
+          });
+        });
+      });
+    };
+
     // Public API here
-    return $window.FamilySearch;
+    return FS;
   });

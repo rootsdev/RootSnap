@@ -22,39 +22,11 @@ angular.module('rootSnapApp')
       $scope.portraitStyle = 'background: url('+portraitURL+') center center no-repeat; background-size:cover';
     }
 
-    function filterPhotos(photos) {
-      var result = [];
-      for (var i = 0, len = photos.length; i < len; i++) {
-        console.log('photo', photos[i]);
-        if (photos[i].mediaType.substring(0,6) === 'image/') {
-          result.push(photos[i]);
-        }
-      }
-      return result;
-    }
-
-    $scope.photos = filterPhotos(photos);
+    $scope.photos = photos;
 
     $scope.uploadFile = function(element) {
-      console.log(element.files[0]);
-      var fd = new FormData();
-      fd.append('artifact', element.files[0]);
-      // add memory
-      familysearch.createMemory(fd).then(function(response) {
-        // response == memory id
-        familysearch.getMemory(response).then(function(response) {
-          var memory = response.getMemory();
-          var persona = new familysearch.MemoryPersona(person.$getDisplayName(), memory.about);
-          familysearch.addMemoryPersona(memory.id, persona).then(function(response) {
-            // response == MemoryRef
-            familysearch.addMemoryPersonaRef(person.id, response).then(function() {
-              // re-fetch the photos
-              familysearch.getPersonMemoriesQuery(person.id, {type: 'photo'}).then(function(response) {
-                $scope.photos = filterPhotos(response.getMemories());
-              });
-            });
-          });
-        });
+      familysearch.rsUploadFile(person, element.files[0]).then(function(memory) {
+        $scope.photos.push(memory);
       });
-    };
+    }
   });
