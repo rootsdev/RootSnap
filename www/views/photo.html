@@ -2,18 +2,29 @@
 <div class="page-header">
 	<h3 class="text-center"><small>Adding a Photo for</small> Pranas Paukstys</h3>
 </div>
-<h4 class="text-center">Choose a photo to upload to FamilySearch.org and attach to your ancestor's profile.</h4>
-<br />
-<div class="btn-group btn-group-justified">
-  <a class="btn btn-default btn-lg" ng-click="capturePhoto()"><i class="fs-icon-camera"></i> Take Photo</a>
-  <a class="btn btn-default btn-lg" class="btn btn-primary btn-lg" ng-click="{{choosePhoto()}}"><i class="fs-icon-albums"></i> Select Existing</a>
-</div>
 <br />
 
-<div class="center-block">
-    <img id="photo">
-    <img id="spinner" src="vendor/topcoat/img/spinner2x.png">
-</div>
+<form role="form">
+  <div class="text-center"><img id="blah" src="{{links.image.href}}" style="max-width: 200px;" alt="your image" /></div>
+  <div class="form-group">
+  
+    <label for="file">Select an Image</label>
+    <input type="file" id="file">
+  </div>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="email" class="form-control input-lg" id="title" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea type="password" class="form-control input-lg" id="description" placeholder="Description"></textarea>
+  </div>
+
+  
+  <button type="submit" class="btn btn-default btn-lg">Upload Photo</button>
+</form>
+
+<br />
 
 <br class="clearboth" /><br /><br />
-<center><a href="#!/list" class="btn btn-success btn-large"><i class="fs-icon-arrow-left"></i> Go Back</a></center>
+<div class="text-center"><a href="#!/list" class="btn btn-success btn-large"><i class="fs-icon-arrow-left"></i> Go Back</a></div>

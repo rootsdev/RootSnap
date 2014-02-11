@@ -34,17 +34,17 @@
     <div class="navbar navbar navbar-default navbar-fixed-top">
       <div class="container">
             <div class="navbar-header">
-              <button ng-class="{ 'forced-hide': !goBackButton }" class="goBackButton btn btn-default btn-sm navbar-btn hidden-xs" ng-click="loadPage('/list')"><i class="fs-icon-arrow-left"></i> Go Back</button>
-              <button class="goBackButton btn btn-default btn-sm navbar-btn visible-xs" ng-click="loadPage('/list')" ng-class="{ 'forced-hide': !goBackButton }"><i class="fs-icon-arrow-left"></i></button>
+              <button ng-class="{ 'forced-hide': !goBackButton }" class="forced-hide goBackButton btn btn-default btn-sm navbar-btn hidden-xs" ng-click="loadPage('/list')"><i class="fs-icon-arrow-left"></i> Go Back</button>
+              <button class="forced-hide goBackButton btn btn-default btn-sm navbar-btn visible-xs" ng-click="loadPage('/list')" ng-class="{ 'forced-hide': !goBackButton }"><i class="fs-icon-arrow-left"></i></button>
               <a class="navbar-brand" href="#!/main">
                 RootSnap
               </a>
-              <button ng-controller="LoginCtrl" ng-click="logout()" ng-class="{ 'forced-hide': !signOutButton }" class="signOutButton btn btn-default btn-sm navbar-btn hidden-xs"><i class="fs-icon-sign-out"></i> Signout</button><button ng-controller="LoginCtrl" ng-click="logout()" ng-class="{ 'forced-hide': !signOutButton }" class="btn btn-default btn-sm navbar-btn visible-xs signOutButton"><i class="fs-icon-sign-out"></i> </button>
+              <button ng-controller="LoginCtrl" ng-click="logout()" ng-class="{ 'forced-hide': !signOutButton }" class="forced-hide signOutButton btn btn-default btn-sm navbar-btn hidden-xs"><i class="fs-icon-sign-out"></i> Signout</button><button ng-controller="LoginCtrl" ng-click="logout()" ng-class="{ 'forced-hide': !signOutButton }" class="forced-hide btn btn-default btn-sm navbar-btn visible-xs signOutButton"><i class="fs-icon-sign-out"></i> </button>
             </div>
           </div>
     </div>
     <div class="container" ng-view=""></div>
-    <nav ng-class="{ 'forced-hide': !footerNavBar }" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <nav ng-class="{ 'forced-hide': !footerNavbar }" ng-controller="PhotoCtrl" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
       <div class="btn-group btn-group-justified ng-scope hidden-xs">
         <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="takeMobilePhoto()"><i class="fs-icon-camera"></i> Capture Photo</a>
         <a class="btn btn-default btn-lg" ng-controller="PhotoCtrl" ng-click="selectMobilePhoto()"><i class="fs-icon-albums"></i> Choose Photo</a>
@@ -74,7 +74,6 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="components/es5-shim/es5-shim.js"></script>
-    <script src="components/steroids-js/steroids.js"></script>
     <script src="components/json3/lib/json3.min.js"></script>
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
@@ -82,6 +81,7 @@
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
     <script src="components/angular-route/angular-route.js"></script>
     <script src="components/familysearch-javascript-sdk/familysearch-javascript-sdk.js"></script>
+    <script src="components/steroids-js/steroids.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -93,6 +93,6 @@
         <script src="/scripts/controllers/profile.js"></script>
         <script src="/scripts/controllers/photo.js"></script>
         <script src="/scripts/services/familysearch.js"></script>
-        <!-- endbuild -->
+    <!-- endbuild -->
 </body>
 </html>

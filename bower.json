@@ -11,7 +11,8 @@
     "angular-cookies": "1.2.6",
     "angular-sanitize": "1.2.6",
     "angular-route": "1.2.6",
-    "familysearch-javascript-sdk": "git://github.com/rootsdev/familysearch-javascript-sdk.git"
+    "familysearch-javascript-sdk": "git://github.com/rootsdev/familysearch-javascript-sdk.git#gh-pages",
+    "steroids-js": "3.1.x"
   },
   "ignore": [
     "**/.*",

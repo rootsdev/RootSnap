@@ -8,17 +8,20 @@ angular.module('rootSnapApp')
       });
     },
     portraitURL: function(familysearch, $route) {
-      return familysearch.getPersonPortraitURL($route.current.params.id, {followRedirect: true});
+      return familysearch.getPersonPortraitUrl($route.current.params.id, {followRedirect: true});
     },
     photos: function(familysearch, $route) {
       return familysearch.getPersonMemoriesQuery($route.current.params.id, {type: 'photo'}).then(function(response) {
+        console.log(response.getMemories());
         return response.getMemories();
       });
     }
   })
   .controller('ProfileCtrl', function ($scope, person, portraitURL, photos, $rootScope) {
     
-    $rootScope.footerNavbar = true;
+    if ($rootScope.isMobile) {
+      $rootScope.footerNavbar = true;  
+    }
     $rootScope.signOutButton = true;
     $rootScope.goBackButton = true;
 
@@ -27,7 +30,7 @@ angular.module('rootSnapApp')
     if (portraitURL) {
       $scope.portraitStyle = 'background: url('+portraitURL+') center center no-repeat; background-size:cover';
     }
-    console.log('photos',photos);
+    //console.log('photos',photos);
     $scope.photos = [];
     for (var i = 0, len = photos.length; i < len; i++) {
       if (photos[i].mediaType.substring(0,6) === 'image/') {

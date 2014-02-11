@@ -42,8 +42,5 @@ angular.module('rootSnapApp', [
         templateUrl: 'mocks/photo.html',
         controller: 'PhotoCtrl'
         //resolve: PhotoCtrlResolver
-      })
-      .otherwise({
-        redirectTo: '/'
       });
   });

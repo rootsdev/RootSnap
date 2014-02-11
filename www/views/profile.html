@@ -4,21 +4,21 @@
 
     <div class="nameWrapper">
       <i class="icon-rounded" ng-class="{hasImage: portraitStyle, 'fs-icon-male': person.isMale(), 'fs-icon-female': !person.isMale()}" style="{{portraitStyle}}">
-        &nbsp;</i> <h1>{{person.display.name}}{{isMobile}}</h1>
-      <button class="btn btn-lg btn-default pull-right hidden-xs" ng-class="{'forced-hide': isMobile}" ng-controller="PhotoCtrl" ng-click="uploadPhoto()">Add Photo</button>
+        &nbsp;</i> <h1>{{person.display.name}}</h1>
+      <button class="btn btn-lg btn-default pull-right hidden-xs" data-toggle="modal" data-target="#addPhoto" ng-class="{'forced-hide': isMobile}" ng-controller="PhotoCtrl" ng-click="uploadPhoto()">Add Photo</button>
       <ul class="list-collapsed">
         <li class="lifeSpan" title="{{person.display.birthDate}} - {{person.display.deathDate}}">{{person.display.lifespan}}</li>
       </ul>
-      <button class="btn btn-lg btn-default pull-right visible-xs" ng-class="{'forced-hide': isMobile}" ng-controller="PhotoCtrl" ng-click="uploadPhoto()">Add Photo</button>
+      <button class="btn btn-lg btn-default pull-right visible-xs" data-toggle="modal" data-target="#addPhoto" ng-class="{'forced-hide': isMobile}" ng-controller="PhotoCtrl" ng-click="uploadPhoto()">Add Photo</button>
     </div>
   </div>
   <div class="clearboth"></div>
 </div>
 
-<section class="album-content2">
-	<ul class="polaroids" ng-repeat="photo in photos">
+<section class="album-content">
+	<ul class="polaroids" ng-controller="PhotoCtrl" ng-repeat="photo in photos">
 		<li>
-			<a target="_blank" class="img-thumbnail" href="#" title="{{photo.getTitle()}}">
+			<a ng-click="openPhoto(photo.about)" class="img-thumbnail" title="{{photo.getTitle()}}">
 	    		<img alt="{{photo.getTitle()}}" class="" ng-src="{{photo.getThumbnailURL()}}">
           <div ng-class="{'hide': !photo.getTitle() }" class="title">{{photo.getTitle()}}</div>
           <div ng-class="{'hide': !photo.getDescription() }" class="description">{{photo.getDescription()}}</div>
@@ -26,5 +26,27 @@
 		</li>
 	</ul>
 </section>
+
+<div modal-show modal-visible="showDialog" class="modal fade"> ...bootstrap modal... </div>
+
+<!-- Modal -->
+<div class="modal fade" id="addPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add Photo</h4>
+
+      </div>
+      <div class="modal-body">
+        Here's the body.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <br class="clearboth" /><br /><br />

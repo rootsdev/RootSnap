@@ -753,14 +753,8 @@ ul.polaroids .title, ul.polaroids .title:hover {
 
 /* Scale the images on hover, add transitions for smoothing things out, and ensure the hover appears on top */
 ul.polaroids a:hover {
-  transform: translate3d(0,0,0);
-  -webkit-transform: translate3d(0,0,0);
-	text-decoration:none;
-	border-bottom-width: 1px;
-  -webkit-transform: scale(1.25);
-  -moz-transform: scale(1.25);
-  position: relative;
-  z-index: 5;
+  text-decoration:none;
+	border-color: #aaa;
 }
 .forced-hide {
   display: none !important;

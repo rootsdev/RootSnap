@@ -32,6 +32,6 @@ angular.module('rootSnapApp')
     };
 
     $scope.select = function(person) {
-      $location.path('/profile').search({id: person.id});
+      $rootScope.loadPage('/profile', {id: person.id});
     };
   });
