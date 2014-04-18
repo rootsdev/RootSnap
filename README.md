@@ -1,8 +1,11 @@
 The purpose of this project is to demonstrate an easy way to create applications that access FamilySearch
 using the [FamilySearch javascript SDK](https://github.com/rootsdev/familysearch-javascript-sdk).
 
-Once it is complete, you will be able to sign in to the FamilySearch sandbox (requires a sandbox account),
-get a list of your ancestors, view photos that have been uploaded to your ancestors, and upload new photos.
+It demonstrates signing in to the FamilySearch sandbox 
+(requires a sandbox account),
+getting a list of your ancestors, 
+viewing photos that have been uploaded, 
+and uploading new photos.
 
 This application makes use of the following technologies:
 
