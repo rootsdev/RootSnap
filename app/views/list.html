@@ -17,7 +17,7 @@
           <div class="personWrapper">
             <div class="nameWrapper">
               <i class="icon-rounded" ng-class="{'fs-icon-male': person.rsIsMale(), 'fs-icon-female': !person.rsIsMale()}">&nbsp;</i>
-              <a href="" class="personcard name" ng-click="select(person)">{{person.display.name}}</a>
+              <a href="" class="personcard name" ng-click="select(person)">{{person.$getDisplayName()}}</a>
             </div>
             <ul class="list-collapsed">
               <li class="pid">{{person.id}}</li>
@@ -27,13 +27,13 @@
         <td class="primaryEvents">
           <div class="event clearfix">
             <span class="eventName hidden-xs hidden-sm">birth</span><span class="eventName visible-xs visible-sm">b.</span>
-            <span class="eventDate">{{person.display.birthDate}}</span>
-            <span class="eventPlace"><span ng-show="person.display.birthPlace">,&nbsp;</span>{{person.display.birthPlace}}</span>
+            <span class="eventDate">{{person.$getDisplayBirthDate()}}</span>
+            <span class="eventPlace"><span ng-show="person.$getDisplayBirthPlace()">,&nbsp;</span>{{person.$getDisplayBirthPlace()}}</span>
           </div>
           <div class="event clearfix">
             <span class="eventName hidden-xs hidden-sm">death</span><span class="eventName visible-xs visible-sm">d.</span>
-            <span class="eventDate">{{person.display.deathDate}}</span>
-            <span class="eventPlace"><span ng-show="person.display.deathPlace">,&nbsp;</span>{{person.display.deathPlace}}</span>
+            <span class="eventDate">{{person.$getDisplayDeathDate()}}</span>
+            <span class="eventPlace"><span ng-show="person.$getDisplayDeathPlace()">,&nbsp;</span>{{person.$getDisplayDeathPlace()}}</span>
           </div>
         </td>
       </tr>

@@ -4,12 +4,12 @@
 
     <div class="nameWrapper">
       <i class="fs-icon-male icon-rounded" ng-class="{hasImage: portraitStyle}" style="{{portraitStyle}}">&nbsp;</i>
-      <h1>{{person.display.name}}</h1>
+      <h1>{{person.$getDisplayName()}}</h1>
       <div class="btn btn-lg btn-default btn-file pull-right">
         Add photo <input type="file" onchange="angular.element(this).scope().uploadFile(this)">
       </div>
       <ul class="list-collapsed">
-        <li class="lifeSpan" title="{{person.display.birthDate}} - {{person.display.deathDate}}">{{person.display.lifespan}}</li>
+        <li class="lifeSpan" title="{{person.$getDisplayBirthDate()}} - {{person.$getDisplayDeathDate()}}">{{person.$getDisplayLifeSpan()}}</li>
       </ul>
     </div>
   </div>

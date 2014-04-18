@@ -18,32 +18,28 @@ angular.module('rootSnapApp')
     });
 
     FS.Person.prototype.rsIsMale = function() {
-      return this.display.gender === 'Male';
+      return this.$getDisplayGender() === 'Male';
     };
 
     FS.rsUploadFile = function(person, file) {
       var fd = new FormData();
       fd.append('artifact', file);
-      // add memory
-      return FS.createMemory(fd).then(function(response) {
-        // response === memory id
 
-        // read the memory
-        return FS.getMemory(response).then(function(response) {
-          var memory = response.getMemory();
+      // create a memory
+      var memory = new FS.Memory({$data: fd});
+      return memory.$save(true).then(function() {
 
-          // create a memory persona
-          var persona = new FS.MemoryPersona(person.$getDisplayName(), memory.about);
+        // create a memory persona
+        var mar = new FS.MemoryArtifactRef({description: memory.about});
+        var persona = new FS.MemoryPersona({$memoryId: memory.id, name: person.$getDisplayName(), memoryArtifactRef: mar});
+        return persona.$save().then(function(response) {
+          // response is memory persona url
 
-          // add the memory persona to the memory
-          return memory.$addMemoryPersona(persona).then(function(response) {
-            // response === MemoryPersonaRef
-
-            // add the memory persona ref to the person
-            return person.$addMemoryPersonaRef(response).then(function() {
-              // success
-              return memory;
-            });
+          // create a memory persona ref
+          var personaRef = new FS.MemoryPersonaRef({$personId: person.id, memoryPersona: response});
+          return personaRef.$save().then(function() {
+            // success
+            return memory;
           });
         });
       });
